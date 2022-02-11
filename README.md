@@ -132,6 +132,6 @@ ajax.getJSON(<url>);
 Функциональность кнопки "Load More" реализовывать не нужно.
 
 ---
-[Server](https://polling-alexa222.herokuapp.com/)
+[Server fixed](https://coatest.herokuapp.com/)
 
 [GH-Page][![Build status](https://ci.appveyor.com/api/projects/status/i5heqiovb9c6nn4s/branch/main?svg=true)](https://ci.appveyor.com/project/222Alexa44925/ahj-11-2/branch/main)

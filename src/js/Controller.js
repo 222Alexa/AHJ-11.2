@@ -19,15 +19,16 @@ export default class Controller {
   }
 
   subscribeStream() {
-    this.postStream$ = ajax // ajax.getJSON("https://polling-alexa222.herokuapp.com/posts/latest")
-      .getJSON("http://localhost:8080/posts/latest")
+    this.postStream$ = ajax
+      .getJSON(`https://coatest.herokuapp.com/posts/latest`)
       .pipe(
         pluck("data"),
         switchMap((posts) => {
           const postsAndComments = posts.map((post) =>
-            // ajax.getJSON(`ajax.getJSON("https://polling-alexa222.herokuapp.com/posts/${post.id}/comments/latest`)
             ajax
-              .getJSON(`http://localhost:8080/posts/${post.id}/comments/latest`)
+              .getJSON(
+                `https://coatest.herokuapp.com/posts/${post.id}/comments/latest`
+              )
               .pipe(
                 pluck("data"),
                 map((comments) => ({ ...post, comments }))
@@ -56,6 +57,7 @@ export default class Controller {
   }
 
   getComments(obj) {
+    console.log(obj, "obj");
     if (!obj.length) {
       return;
     }
