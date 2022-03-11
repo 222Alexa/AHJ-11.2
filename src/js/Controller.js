@@ -20,7 +20,7 @@ export default class Controller {
 
   subscribeStream() {
     this.postStream$ = ajax
-      .getJSON(`https://coatest.herokuapp.com/posts/latest`)
+      .getJSON("https://coatest.herokuapp.com/posts/latest")
       .pipe(
         pluck("data"),
         switchMap((posts) => {
@@ -49,8 +49,8 @@ export default class Controller {
       return;
     }
     obj.forEach((elem) => {
-      const message = new Post(elem);
-      message.init();
+      const post = new Post(elem);
+      post.init();
 
       this.getComments(elem.comments);
     });
